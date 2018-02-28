@@ -96,7 +96,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
 
                   # Build CouchDB packages
@@ -137,7 +136,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
                 '''
               } // withDocker
@@ -163,7 +161,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
 
                   # Build CouchDB packages
@@ -202,7 +199,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
                 '''
               } // withDocker
@@ -228,7 +224,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
 
                   # Build CouchDB packages
@@ -267,7 +262,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
                 '''
               } // withDocker
@@ -293,7 +287,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
 
                   # Build CouchDB packages
@@ -332,7 +325,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
                 '''
               } // withDocker
@@ -358,7 +350,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
 
                   # Build CouchDB packages
@@ -397,7 +388,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
                 '''
               } // withDocker
@@ -423,7 +413,6 @@ pipeline {
                   cd apache-couchdb-*
                   ./configure --with-curl
                   make all
-                  make eunit apps=couch suites=couchdb_compaction_daemon_tests || (build-aux/logfile-uploader.py && false)
                   make check || (build-aux/logfile-uploader.py && false)
 
                   # Build CouchDB packages
