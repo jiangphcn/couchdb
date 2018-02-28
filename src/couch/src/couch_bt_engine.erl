@@ -498,8 +498,10 @@ finish_compaction(OldState, DbName, Options, CompactFilePath) ->
     NewSeq = get_update_seq(NewState1),
     case OldSeq == NewSeq of
         true ->
+            io:format(standard_error, "XKCD: Finishing compaction for: ~s", [DbName]),
             finish_compaction_int(OldState, NewState1);
         false ->
+            io:format(standard_error, "XKCD: Retrying compaction for: ~s", [DbName]),
             couch_log:info("Compaction file still behind main file "
                            "(update seq=~p. compact update seq=~p). Retrying.",
                            [OldSeq, NewSeq]),
