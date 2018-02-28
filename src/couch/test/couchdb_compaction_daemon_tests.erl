@@ -21,6 +21,10 @@
         [couch_db_updater, couch_mrview_compactor, couch_compaction_daemon]).
 
 
+log(Fmt, Args) ->
+    io:format(standard_error, Fmt, Args).
+
+
 start() ->
     Ctx = test_util:start_couch(),
     ok = config:set("compaction_daemon", "check_interval", "3", false),
@@ -73,6 +77,8 @@ compaction_daemon_test_() ->
 
 should_compact_by_default_rule(DbName) ->
     {timeout, ?TIMEOUT_S, ?_test(begin
+        log("XKCD: I AM TEST!~n", []),
+
         CompactionMonitor = spawn_compaction_monitor(DbName),
 
         {_, DbFileSize} = get_db_frag(DbName),
@@ -92,6 +98,8 @@ should_compact_by_default_rule(DbName) ->
 
         {DbFrag2, DbFileSize2} = get_db_frag(DbName),
         {ViewFrag2, ViewFileSize2} = get_view_frag(DbName),
+
+        log("~nXKCD: ~p ~p ~p~n", [DbFileSize, DbFileSize2, DbFrag2]),
 
         ?assert(DbFrag2 < 70),
         ?assert(ViewFrag2 < 70),
@@ -195,6 +203,7 @@ get_db_frag(DbName) ->
     couch_db:close(Db),
     FileSize = get_size(file, Info),
     DataSize = get_size(active, Info),
+    log("~nXKCD: ~p ~p ~w~n", [FileSize, DataSize, Info]),
     {round((FileSize - DataSize) / FileSize * 100), FileSize}.
 
 get_view_frag(DbName) ->
